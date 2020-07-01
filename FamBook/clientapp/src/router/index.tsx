@@ -14,6 +14,7 @@ const AppRouter = () => (
                 <Route path="/" component={Home} />
             </Switch>
         </div>
+          
     </Router>
 );
 
