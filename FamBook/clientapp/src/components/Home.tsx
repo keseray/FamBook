@@ -5,6 +5,7 @@ import { Weather } from '../types/Weather';
 import { Country } from '../types/Country';
 import { City } from '../types/City';
 import { Constants } from '../Constants';
+import { CurrentCondition } from '../types/CurrentCondition';
 interface IState {
     weather: Weather,
     countries: Country[],
@@ -33,6 +34,52 @@ class Home extends React.Component {
         }
     }
 
+    async getCity(searchText: string, countryCode: string): Promise<City> {
+        const res = await fetch(`${Constants.locationAPIUrl}/cities/${countryCode}/search?apikey=${Constants.apiKey}&q=${searchText}`);
+        const cities = await res.json() as City[];
+        if (cities.length > 0)
+            return cities[0];
+
+        return {} as City;
+    }
+
+    async getCurrentConditions(city: City) {
+        try {
+            const res = await fetch(`${Constants.currentConditionsAPIUrl}/
+                                 ${city.Key}?apikey=${Constants.apiKey}`);
+            const currentConditions = await res.json() as CurrentCondition[];
+            if (currentConditions.length > 0) {
+                const weather = new Weather(currentConditions[0], city);
+                await this.setStateAsync({
+                    weather: weather,
+                    city: city
+                } as IState);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        return {} as Weather;
+    }
+
+    getWeather = async (e: any, countryCode: string, searchText: string) => {
+
+        e.preventDefault();
+        if (!countryCode && !searchText) {
+            await this.setStateAsync
+                ({ weather: { error: "Please enter the value." } } as IState);
+            return;
+        }
+        try {
+            const city = await this.getCity(searchText, countryCode);
+            //alert(JSON.stringify(city));
+            if (city.Key) {
+                await this.getCurrentConditions(city);
+            }
+        } catch (err) {
+            await this.setStateAsync({ weather: { error: err } } as IState);
+        }
+    };
+
     async componentDidMount() {
         try {
             const countries = await this.getCountries();
@@ -54,7 +101,7 @@ class Home extends React.Component {
                     <div className="row">
                         <div className="form-container">
                             <WeatherDetails weather={this.state.weather} />
-                            <Form countries={this.state.countries} />
+                            <Form getWeather={this.getWeather} countries={this.state.countries} />
                         </div>
                     </div>
                 </div>

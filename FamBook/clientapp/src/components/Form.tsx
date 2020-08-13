@@ -11,7 +11,7 @@ interface IState {
 };
 
 interface IProps {
-    /* The http path that the form will be posted to */
+    getWeather: (e: any, country: string, serachText: string) => Promise<void>;
     countries: Country[];
 }
 class Form extends React.Component<IProps, IState> {
@@ -24,7 +24,11 @@ class Form extends React.Component<IProps, IState> {
             searchText: ""
         }
     };
+
+
     handleSubmit = async (e: any) => {
+
+        this.props.getWeather(e, this.state.country.ID, this.state.searchText);
     }
     render() {
         return (
