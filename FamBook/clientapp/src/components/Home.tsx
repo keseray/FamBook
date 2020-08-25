@@ -6,6 +6,7 @@ import { Country } from '../types/Country';
 import { City } from '../types/City';
 import { Constants } from '../Constants';
 import { CurrentCondition } from '../types/CurrentCondition';
+import { CityMetaData } from '../types/CityMetaData';
 interface IState {
     weather: Weather,
     countries: Country[],
@@ -45,8 +46,7 @@ class Home extends React.Component {
 
     async getCurrentConditions(city: City) {
         try {
-            const res = await fetch(`${Constants.currentConditionsAPIUrl}/
-                                 ${city.Key}?apikey=${Constants.apiKey}`);
+            const res = await fetch(`${Constants.currentConditionsAPIUrl}/${city.Key}?apikey=${Constants.apiKey}`);
             const currentConditions = await res.json() as CurrentCondition[];
             if (currentConditions.length > 0) {
                 const weather = new Weather(currentConditions[0], city);
@@ -61,6 +61,45 @@ class Home extends React.Component {
         return {} as Weather;
     }
 
+    async updateLastAccessedCity(city: City) {
+        try {
+            const data = new CityMetaData(city);
+            await fetch(`${Constants.cityAPIUrl}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data),
+            });
+        } catch (e) {
+            console.log(e);
+        }
+
+    }
+
+    async getLastAccessedCity(): Promise<City> {
+        try {
+            const res = await fetch(`${Constants.cityAPIUrl}`);
+            const data = await res.json() as CityMetaData;
+            return {
+                Key: data.id,
+                EnglishName: data.name,
+                Type: 'City',
+                Country: {
+                    ID: data.countryId,
+                    EnglishName: ''
+                }
+            } as City;
+
+
+        } catch (e) {
+            console.log(e);
+            return {} as City;
+        }
+
+    } 
+
     getWeather = async (e: any, countryCode: string, searchText: string) => {
 
         e.preventDefault();
@@ -73,6 +112,7 @@ class Home extends React.Component {
             const city = await this.getCity(searchText, countryCode);
             //alert(JSON.stringify(city));
             if (city.Key) {
+                await this.updateLastAccessedCity(city);
                 await this.getCurrentConditions(city);
             }
         } catch (err) {
@@ -84,6 +124,10 @@ class Home extends React.Component {
         try {
             const countries = await this.getCountries();
             await this.setStateAsync({ countries: countries } as IState);
+            const lastCity = await this.getLastAccessedCity();
+            if (lastCity && lastCity.Key) {
+                await this.getCurrentConditions(lastCity);
+            }
         } catch (error) {
         }
     }
