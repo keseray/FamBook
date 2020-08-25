@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamBook", "FamBook\FamBook.csproj", "{CF128EDD-53D2-41DB-A4AD-BB16099ACF62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FamBook", "FamBook\FamBook.csproj", "{CF128EDD-53D2-41DB-A4AD-BB16099ACF62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.Persistence", "Weather.Persistence\Weather.Persistence.csproj", "{033247F5-05C9-41C8-9595-7DE57B9D075A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{CF128EDD-53D2-41DB-A4AD-BB16099ACF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF128EDD-53D2-41DB-A4AD-BB16099ACF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF128EDD-53D2-41DB-A4AD-BB16099ACF62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033247F5-05C9-41C8-9595-7DE57B9D075A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033247F5-05C9-41C8-9595-7DE57B9D075A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033247F5-05C9-41C8-9595-7DE57B9D075A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033247F5-05C9-41C8-9595-7DE57B9D075A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
