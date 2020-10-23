@@ -81,6 +81,9 @@ h1.grey, h2.grey, h3.grey, h4.grey, h5.grey, h6.grey{
 
 .text-white:hover{color: #fff;}
 
+.text-white-line-height {
+    line-height: 45px;
+}
 .text-green{color: #8dc63f;}
 
 .text-green:hover{color: #39b54a;}
@@ -92,6 +95,20 @@ h1.grey, h2.grey, h3.grey, h4.grey, h5.grey, h6.grey{
 .profile-link{font-weight: 600;}
 
 .text-muted{color: #939598;}
+
+.text-muted-timeAgo {
+    color: #939598;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    padding-top:0px;
+}
+
+.text-muted-comment {
+    color: #939598;
+    font-size:10px;
+    margin-top:-7px;
+    margin-bottom:0px;
+}
 
 a{color: #27aae1;}
 
@@ -116,7 +133,7 @@ section h2.sub-title{
 
 .following{
   color: #8dc63f;
-  font-size: 12px;
+  font-size: 16px;
   margin-left: 20px;
 }
 
@@ -126,7 +143,7 @@ section h2.sub-title{
   ==================================================*/
 
 .container{
-  max-width: 1050px;
+  max-width: 1000px;
 }
 
 section .wrapper{
@@ -247,7 +264,7 @@ ul li{
   border-top: 1px solid #e6e6e6;
   width: 100%;
   margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .map{
@@ -289,6 +306,10 @@ textarea{
 
 #header{
   min-height: 50px;
+}
+
+.menuNoBg {
+    background-color: transparent !important;
 }
 
 .menu{
@@ -743,12 +764,14 @@ textarea{
   ==================================================*/  
 
 #lp-register{
-  background: linear-gradient(to right, rgba(0,0,0, 0.7) , rgba(0,0,0, 0.7)), url("http://placehold.it/1920x1280") fixed no-repeat;
+  background: linear-gradient(to right, rgba(0,0,0, 0.7) , rgba(0,0,0, 0.7)), url("../images/bg2.jpg") repeat;
   background-size: cover;
   background-position: center;
   position: absolute;
   top: 0;
   width: 100%;
+  height: 100%;
+  overflow: auto;
 }
 
 #lp-register .wrapper{
@@ -945,7 +968,7 @@ textarea{
 /*Profile Card CSS*/
 
 .profile-card{
-  background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8)), url("http://placehold.it/1030x430") no-repeat;
+  background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8)), /*url("http://placehold.it/1030x430")*/ no-repeat;
   background-size: cover;
   width: 100%;
   min-height: 90px;
@@ -960,7 +983,6 @@ textarea{
   float: left;
   margin-right: 20px;
   position: relative;
-  top: -30px;
   height: 70px;
   width: 70px;
   border-radius: 50%;
@@ -1100,7 +1122,7 @@ ul.online-users li span.online-dot{
 .create-post{
   width: 100%;
   min-height: 90px;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px;
   border-bottom: 1px solid #f1f2f2;
 }
@@ -1149,14 +1171,15 @@ ul.online-users li span.online-dot{
   border-radius: 4px;
   width: 100%;
   border: 1px solid #f1f2f2;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
   position: relative;
 }
 
 .post-content img.post-image, video.post-video, .google-maps{
-  width: 100%;
+  width: 80%;
   height: auto;
+  
 }
 
 .post-content .google-maps .map{
@@ -1164,7 +1187,7 @@ ul.online-users li span.online-dot{
 }
 
 .post-content .post-container{
-  padding: 20px;
+  padding: 10px 10px 0px 10px;
 }
 
 .post-content .post-container .post-detail{
@@ -1172,10 +1195,10 @@ ul.online-users li span.online-dot{
   position: relative;
 }
 
-.post-content .post-container .post-detail .post-text{
-  line-height: 24px;
-  margin: 0;
-}
+    .post-content .post-container .post-detail .post-text {
+        line-height: 24px;
+        margin: 0;
+    }
 
 .post-content .post-container .post-detail .reaction{
   position: absolute;
@@ -1185,7 +1208,7 @@ ul.online-users li span.online-dot{
 
 .post-content .post-container .post-detail .post-comment{
   display: inline-flex;
-  margin: 10px auto;
+  margin: 5px auto;
   width: 100%;
 }
 
@@ -1459,13 +1482,17 @@ ul.online-users li span.online-dot{
   Timeline
   ==================================================*/
 
-.timeline-cover{
-  background: url("http://placehold.it/1030x360") no-repeat;
-  background-position: center;
-  background-size: cover;
-  min-height: 360px;
-  border-radius: 0 0 4px 4px;
-  position: relative;
+.timeline-cover {
+    background: url("../images/wall.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 260px;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+}
+
+.timeline-cover-bg {
+    background: url("../images/wall5.png") no-repeat;
 }
 
 /*Timeline Menu for Large Screens*/
@@ -2360,4 +2387,200 @@ ul.contact li i{
   z-index: 9999999;
 }
 
+.gray {
+    color:gray;
+}
 
+.bottomMargin {
+    margin-bottom: 5px !important;
+}
+
+.inputWidth {
+    width: 100% !important;
+}
+
+.image-upload > input {
+    display: none;
+}
+
+.image-upload i {
+    width: 80px;
+    cursor: pointer;
+}
+
+.iconSize {
+    font-size: x-large;
+}
+
+.joinLeaveButton {
+    border-radius: 4px !important;
+    margin-left: 3px;
+}
+
+.deleteButton {
+    margin-top: 6px !important;
+}
+
+.feedImage {
+    width: 100% !important;
+    height: 100% !important;
+    margin-top: 5px !important;
+    border-radius: 0px !important;
+}
+.feedcenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.group-profile-info {
+    padding: 25px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+img.group-profile-photo {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.timeAgo {
+    font-size:10px;
+    color:GrayText;
+    text-align:left;
+    width:100%;
+    display:block;
+    position:relative;
+}
+
+li {
+    list-style-type: none !important;
+}
+
+.bold {
+    font-size:17px;
+    font-weight: bold !important;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    min-height:27px;
+}
+
+.bold-comment {
+    font-size: 13px;
+    font-weight: bold !important;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    min-height: 30px;
+}
+
+.userNameMargin {
+    margin-top: 0px !important;
+}
+
+.profileName {
+    font-size: 19px;
+    color: #ffffff;
+}
+
+.profileCardTitle > li > a {
+    color: #fff;
+}
+
+.fontSize20px {
+font-size:20px;
+}
+
+.documentUploadIcon {
+    width: 0px !important;
+    font-size: 20px !important;
+}
+
+
+.getEmojiButton {
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    background-color: orangered;
+    height: 22px;
+}
+
+
+.emojiPicker {
+    position: absolute;
+    z-index: 999;
+}
+
+.iconAlign {
+    font-size: 20px !important;
+    color: dimgray;
+    margin-left: 10px;
+    width: 20px !important;
+    margin-top: -15px;
+}
+
+.likeIconSize {
+    font-size: 20px !important;
+    margin-top:-10px;
+}
+
+.likeIconSize span{
+    font-size: 16px !important;
+    margin-left:5px;
+}
+
+.pull-right {
+    margin-top: -7px;
+}
+
+.comment-p {
+    margin-bottom:-10px;
+}
+
+.width50percent {
+    width:40%;
+    float:left;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #0098dd;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 200px;
+    height: 70px;
+    line-height: 50px;
+    background-color: #000;
+    opacity:0.5;
+    color:#cccccc;
+}
+
+.circle:hover .overlay {
+    display: block;
+}
+
+.overlay:hover {
+    opacity: 0.6;
+}
+
+.profilePhoto {
+    background-color: transparent !important;
+}
+
+.profilePhoto:hover{
+    color:#ffffff !important;
+}

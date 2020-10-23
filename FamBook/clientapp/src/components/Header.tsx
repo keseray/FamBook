@@ -5,7 +5,6 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className="wrapper">
                 <header id="header">
                     <nav className="navbar navbar-default navbar-fixed-top menu">
                         <div className="container">
@@ -87,9 +86,6 @@ class Header extends React.Component {
                         </div>
                     </nav>
                 </header>
-            </div>
-
-
         );
     }
 }
