@@ -11,7 +11,7 @@
 .city {
     display: flex;
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(25,112,245,0.6399510487788865) 0%, rgba(0,212,255,1) 100%);
-    flex-direction: column;
+    /*flex-direction: column;*/
     height: 40vh;
     justify-content: center;
     align-items: center;

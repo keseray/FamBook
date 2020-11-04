@@ -18,7 +18,7 @@ export default class Header extends React.Component {
                                 <a className="navbar-brand" href="index-register.html"><img src="images/logo.png" alt="logo" /></a>
                             </div>
                             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul className="nav navbar-nav navbar-right main-menu">
+                                <ul className="nav navbar-right main-menu">
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span><img src="images/down-arrow.png" alt="" /></span></a>
                                     </li>
