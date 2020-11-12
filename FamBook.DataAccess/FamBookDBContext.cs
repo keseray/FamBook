@@ -9,17 +9,11 @@ namespace FamBook.DataAccess
 {
     public class FamBookDBContext : DbContext
     {
-        public FamBookDBContext(DbContextOptions<FamBookDBContext> options) : base(options)
-        {
-
-        }
+        public DbSet<Account> Accounts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=FamBookDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=.;Database=FamBookDB;Trusted_Connection=True;");
         }
-        public DbSet<Account> Accounts { get; set; }
-
-
     }
 }
