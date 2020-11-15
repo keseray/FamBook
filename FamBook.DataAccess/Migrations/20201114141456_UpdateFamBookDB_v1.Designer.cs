@@ -4,14 +4,16 @@ using FamBook.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FamBook.DataAccess.Migrations
 {
     [DbContext(typeof(FamBookDBContext))]
-    partial class FamBookDBContextModelSnapshot : ModelSnapshot
+    [Migration("20201114141456_UpdateFamBookDB_v1")]
+    partial class UpdateFamBookDB_v1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,13 +37,7 @@ namespace FamBook.DataAccess.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("LoginInfoId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("LoginInfoId")
-                        .IsUnique();
 
                     b.ToTable("Accounts");
                 });
@@ -74,22 +70,6 @@ namespace FamBook.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("LoginInfos");
-                });
-
-            modelBuilder.Entity("FamBook.DataAccess.Entities.Account", b =>
-                {
-                    b.HasOne("FamBook.DataAccess.Entities.LoginInfo", "LoginInfo")
-                        .WithOne("Account")
-                        .HasForeignKey("FamBook.DataAccess.Entities.Account", "LoginInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoginInfo");
-                });
-
-            modelBuilder.Entity("FamBook.DataAccess.Entities.LoginInfo", b =>
-                {
-                    b.Navigation("Account");
                 });
 #pragma warning restore 612, 618
         }

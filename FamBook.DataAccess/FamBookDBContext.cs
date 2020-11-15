@@ -10,6 +10,7 @@ namespace FamBook.DataAccess
     public class FamBookDBContext : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<LoginInfo> LoginInfos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
